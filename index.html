@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kingdom Clash</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar glass-panel">
+        <div>
+          <p class="eyebrow">Original village raiding game</p>
+          <h1>Kingdom Clash</h1>
+          <p class="subtitle">
+            Build a compact war base, train squads, then deploy troops onto an enemy map and
+            watch the raid resolve in real time.
+          </p>
+        </div>
+
+        <section>
+          <h2>Resources</h2>
+          <div class="resource-grid">
+            <div class="resource-card gold"><span>Gold</span><strong id="goldValue">0</strong></div>
+            <div class="resource-card elixir"><span>Elixir</span><strong id="elixirValue">0</strong></div>
+            <div class="resource-card trophies"><span>Trophies</span><strong id="trophyValue">0</strong></div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title-row">
+            <h2>Build Mode</h2>
+            <button id="clearSelectionBtn" class="ghost-button small-button">Clear</button>
+          </div>
+          <div id="buildPalette" class="palette-grid"></div>
+          <div id="selectionInfo" class="selection-card"></div>
+        </section>
+
+        <section>
+          <h2>Army Camp</h2>
+          <div class="actions two-col">
+            <button id="trainBarbarianBtn">Train Barbarian</button>
+            <button id="trainArcherBtn">Train Archer</button>
+            <button id="trainGiantBtn">Train Giant</button>
+            <button id="brewSpellBtn">Brew Heal Spell</button>
+          </div>
+          <div id="armyInfo" class="info-list compact-list"></div>
+        </section>
+
+        <section>
+          <div class="section-title-row">
+            <h2>Raid Controls</h2>
+            <button id="newEnemyBtn" class="ghost-button small-button">Scout New Base</button>
+          </div>
+          <div class="actions">
+            <button id="startRaidBtn" class="raid-button">Start Raid</button>
+            <button id="healSpellBtn" class="ghost-button">Cast Heal Spell</button>
+          </div>
+          <div id="raidInfo" class="info-list compact-list"></div>
+        </section>
+      </aside>
+
+      <main class="main-stage">
+        <section class="glass-panel battlefield-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Village editor</p>
+              <h2>Your base</h2>
+            </div>
+            <div class="base-health">
+              <span>Base Power</span>
+              <strong id="homePowerValue">0</strong>
+            </div>
+          </div>
+          <p class="helper-text">
+            Choose a building, then click an empty tile to place it. Click an existing tile while a
+            building is selected to replace it.
+          </p>
+          <div id="homeGrid" class="base-grid home-grid"></div>
+        </section>
+
+        <section class="glass-panel battlefield-panel enemy-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Live assault</p>
+              <h2>Enemy base</h2>
+            </div>
+            <div class="base-health">
+              <span>Town Hall</span>
+              <strong id="enemyHealthValue">100%</strong>
+            </div>
+          </div>
+          <p class="helper-text">
+            Start a raid, then click any edge tile to deploy troops. Troops automatically target the
+            nearest defensive or economic structure.
+          </p>
+          <div id="enemyGrid" class="base-grid enemy-grid"></div>
+          <div class="battle-log" id="battleLog"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="tileTemplate">
+      <button class="tile" type="button">
+        <span class="tile-topline"></span>
+        <span class="tile-icon"></span>
+        <span class="tile-label"></span>
+        <span class="tile-health"></span>
+      </button>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
